@@ -18,7 +18,11 @@ class weather_cit:
                     j+=1
                     tmp1 += float(self.row[3])
                     if float(self.row[4]) < 200:
-                        tmp2 += 998.5
+                        if float(self.row[4]) < 1:
+                            tmp2 += float(self.row[4]) * 100
+                        elif float(self.row[4]) < 99:
+                            tmp2 += float(self.row[4]) * 10
+
                     else:
                         tmp2 += float(self.row[4])
                     tmp3 += float(self.row[5])

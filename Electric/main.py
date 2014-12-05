@@ -64,12 +64,12 @@ def prepareTarget():
 target = prepareTarget()
 input = prepareInput()
 #
-conec = tmlgraph((53, 200, 200, 24))  # or imlgraph? which one will be better ?
+conec = tmlgraph((53, 45, 45, 24))  # tmlgraph or imlgraph? which one will be better ?
 net = ffnet(conec)
 print len(input), len(target)
 # NX.draw_graphviz(net.graph, prog='dot') show the network that's nice!
 # pl.show()
-dd = net.train_rprop(input[:-365], target[:-365],mimin=1e-06, mimax=500.0, xmi=0.2, maxiter=10000, disp=0)
+dd = net.train_rprop(input[:-365], target[:-365], mimin=1e-06, mimax=500.0, xmi=0.2, maxiter=10000, disp=1)
 output, regression = net.test(input[-365:], target[-365:], iprint=2)
 
 sum = 0.0
