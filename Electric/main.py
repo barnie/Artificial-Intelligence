@@ -108,7 +108,7 @@ NET = ffnet(CONEC)
 
 #calculate special days
 for i in range(4):
-    net = ffnet(CONEC) #year have 52 weeks so, run networks for year
+    net = ffnet(CONEC) #year have 52 weeks so, also we have 52 special days in year
     network, output, regression = calculate_network(
         LEARNING_SPECIALIST[i][:-52],
         LEARNING_SPECIALIST_OUTPUT[i][:-52],
