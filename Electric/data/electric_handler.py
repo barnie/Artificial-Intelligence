@@ -16,8 +16,6 @@ class electric_hander:
             for row in reader:
                 self.electric_day.append(el(row))
         month = []
-        print self.electric_day[0].getHourList()
-        print self.electric_day[1].getHourList()
         prev = self.electric_day[0]
         for day in self.electric_day:
             if day.getDate().month == prev.getDate().month:

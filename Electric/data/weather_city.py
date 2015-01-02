@@ -33,7 +33,6 @@ class weather_cit:
                     prev = i[2]
                     j = 0
                 j = j + 1
-        print len(self.rows)
 
     def getWeather(self):
         return self.rows
