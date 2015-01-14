@@ -83,8 +83,7 @@ def prepare_target():
 TARGET = prepare_target()
 INPUT = prepare_input()
 
-
-def calculate_network(input_, target_, test_input, test_output, net1):
+def single_network(input_, target_, test_input, test_output, net1):
     """" Return learned network and, outpur,regression for test """
     network = net1.train_rprop(input_, target_, mimin=1e-06, mimax=500.0,
         xmi=0.2, maxiter=100, disp=1)
@@ -95,9 +94,19 @@ def calculate_network(input_, target_, test_input, test_output, net1):
     for index in range(len(output)):
          for j in range((len(output[index]))):
              summ = summ + ( (abs(float(target_[index][j]) - float(output[index][j]))) / float(target_[index][j]) )
-    print summ, summ/len(test_output) # print error for all networks
-    return network, output, regression
+    #print summ, summ/len(test_output) # print error for all networks
+    return network, output, regression, (summ/len(test_output))
 
+def calculate_network(input_, target_, test_input, test_output, net1):
+    network, output, regression, error = single_network(input_, target_, test_input, test_output, net1)
+    for i in range(4):
+        network1, output1, regression1, error1 = single_network(input_, target_, test_input, test_output, net1)
+        if (error1 < error):
+            network = network
+            output = output1
+            regression = regression1
+            error = error1
+    return network, output, regression, error
 
 CONEC = tmlgraph((54, 10, 24)) #model of connections
 NET = ffnet(CONEC)
@@ -108,14 +117,17 @@ NET = ffnet(CONEC)
 
 #calculate special days
 for i in range(4):
-    net = ffnet(CONEC) #year have 52 weeks so, also we have 52 special days in year
-    network, output, regression = calculate_network(
+    net = ffnet(CONEC) #year have 52 weeks so, we have 52 special days in year
+    network, output, regression, error = calculate_network(
         LEARNING_SPECIALIST[i][:-52],
         LEARNING_SPECIALIST_OUTPUT[i][:-52],
         LEARNING_SPECIALIST[i][-52:],
         LEARNING_SPECIALIST_OUTPUT[i][-52:], net)
+    print "COMMITTE LEADER: ", error
 #calculate work days
-calculate_network(LEARNING_SPECIALIST[4][:-156],
+network, output, regression, error = calculate_network(LEARNING_SPECIALIST[4][:-156],
  LEARNING_SPECIALIST_OUTPUT[4][:-156], LEARNING_SPECIALIST[4][-156:],
         LEARNING_SPECIALIST_OUTPUT[4][-156:], NET)
+
+print "WORK DAY LEADER: ", error
 
