@@ -1,0 +1,35 @@
+➜  Electric git:(master) ✗ python2.7 main.py
+START LOADING DATA
+LOADING DATA COMPLETED
+START LOADING DATA
+LOADING DATA COMPLETED
+Warning: 26th input node takes always a single value of 1.000000.
+Warning: 26th input node takes always a single value of 1.000000.
+Warning: 26th input node takes always a single value of 1.000000.
+Warning: 26th input node takes always a single value of 1.000000.
+Warning: 26th input node takes always a single value of 1.000000.
+COMMITTE LEADER:  1.305471521
+Warning: 26th input node takes always a single value of 5.000000.
+Warning: 26th input node takes always a single value of 5.000000.
+Warning: 26th input node takes always a single value of 5.000000.
+Warning: 26th input node takes always a single value of 5.000000.
+Warning: 26th input node takes always a single value of 5.000000.
+COMMITTE LEADER:  1.5054932456
+Warning: 26th input node takes always a single value of 6.000000.
+Warning: 26th input node takes always a single value of 6.000000.
+Warning: 26th input node takes always a single value of 6.000000.
+Warning: 26th input node takes always a single value of 6.000000.
+Warning: 26th input node takes always a single value of 6.000000.
+COMMITTE LEADER:  1.05396658686
+Warning: 26th input node takes always a single value of 7.000000.
+Warning: 26th input node takes always a single value of 7.000000.
+Warning: 26th input node takes always a single value of 7.000000.
+Warning: 26th input node takes always a single value of 7.000000.
+Warning: 26th input node takes always a single value of 7.000000.
+COMMITTE LEADER:  1.27732181037
+WORK DAY LEADER:  1.14362432703
+13
+H error 0.0912437680423
+summ_error:  1.02845063277
+Total error 1.11969440081
+
